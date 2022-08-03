@@ -1,6 +1,7 @@
 package fr.m2i.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -71,7 +72,16 @@ public class toDoList extends HttpServlet {
 		if (requete.equalsIgnoreCase("mod")) {
 			 
 			DaoFactory.getInstance().getTaskDao().modifier((request.getParameter("nom")),request.getParameter("desc"), request.getParameter("id"));
-			
+		}
+		
+		if (requete.equalsIgnoreCase("transac")) {
+			 
+			try {
+				DaoFactory.getInstance().getTaskDao().transaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 //		if (requete.equalsIgnoreCase("list")) {
 //			//request.setAttribute("exemple",DaoFactory.getInstance().getTaskDao().lister());

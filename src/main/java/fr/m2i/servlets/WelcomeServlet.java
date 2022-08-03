@@ -32,7 +32,7 @@ public class WelcomeServlet extends HttpServlet {
 	private static final String PAGE="/WEB-INF/pages/index.jsp";
 	
 	@Resource(name = "dataSource")
-	private DataSource dataSource;
+	private DataSource dataSource; // utilisation de notre datasource pour se connecter à notre bdd
 	
        
     /**
